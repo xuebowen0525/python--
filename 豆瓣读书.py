@@ -40,11 +40,13 @@ if __name__ =='__main__':
     worksheet = workbook.add_worksheet('小说')
     list=[]
     page =0
+    i = 0
     writeExcel(row=0)
     while page <= 20:
-        url = 'https://book.douban.com/tag/%E5%B0%8F%E8%AF%B4?start='+ str(page) + '&type=T'
+        url = 'https://book.douban.com/tag/%E5%B0%8F%E8%AF%B4?start='+ str(i) + '&type=T'
         get_info(url)
-        page = (page+1)*20
+        page +=1
+        i = page*20
     row = 1
     while row <= len(list):        
         writeExcel(row=row)
